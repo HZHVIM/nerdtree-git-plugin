@@ -290,6 +290,10 @@ augroup nerdtreegitplugin
 augroup END
 " FUNCTION: s:FileUpdate(fname) {{{2
 function! s:FileUpdate(fname)
+    if a:fname =~# '^fugitive'
+        echomsg a:fname
+        return
+    endif
     if g:NERDTreeUpdateOnWrite != 1
         return
     endif
